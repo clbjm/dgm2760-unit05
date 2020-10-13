@@ -4,6 +4,7 @@ const displayResults = document.querySelector('#displayResults')
 
 const listTrees = () => {
     let treeList = ' '
+    let treesLower = ' '
     trees.forEach(tree => {
         treeList += `${tree} <br>`
     })
@@ -56,20 +57,18 @@ document.querySelector('#sortTrees').onclick = () => {
     }
 }
 //making list lowercase
-document.querySelector('#lowerTrees').onclick = () => {
-    treesString = trees.toString();
-    treesLowerString = treesString.toLowerCase();
-    treesLower = treesLowerString.split(",");
+document.querySelector("#lowerTrees").onclick = () => {
+    if (trees.values) {
+    treesString = trees.toString()
+    treesLowerString = treesString.toLowerCase()
+    treesLower = treesLowerString.split(",")
     listTrees()
-    console.log("treesLower: "+treesLower);
-}
-// function myFunction() {
-//     trees = trees.toLowerCase();
-//     document.querySelector('#lowerTrees').onclick = trees;
-//     listTrees()
-// }
-// console.log(myFunction);
-
+    console.log(treesLower)
+    } else {
+        errorElement.textContent = 'dude, i cannot lowercase this list'
+    }
+} 
+    
 
 document.querySelector('#showName3').onclick = () => {
     if (trees.length > 5) {
